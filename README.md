@@ -194,4 +194,4 @@ This project demonstrates practical experience with:
 
 **Umar Arshad**
 
-GitHub: [UmarArshad3](https://github.com/UmarArshad3)
+GitHub: [UmarArshad3](https://github.com/umararshad0)
