@@ -80,7 +80,7 @@ Generated JSON files and downloaded data are excluded from Git using `.gitignore
 Clone the repository:
 
 ```bash
-git clone https://github.com/UmarArshad3/python-api-s3-automation.git
+git clone https://github.com/umararshad0/python-api-s3-automation.git
 cd python-api-s3-automation
 ```
 
@@ -194,4 +194,4 @@ This project demonstrates practical experience with:
 
 **Umar Arshad**
 
-GitHub: [UmarArshad3](https://github.com/umararshad0)
+GitHub: [umararshad0](https://github.com/umararshad0)
