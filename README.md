@@ -11,19 +11,19 @@ The application retrieves sample posts from the [JSONPlaceholder API](https://js
 ## Screenshots & Diagrams
 
 ### Architecture
-![Python API to S3 architecture](screenshots/python-api-s3-architecture.png.drawio.png)
+![Python API to S3 architecture](docs/diagrams/python-api-s3-architecture.png)
 
 ### GitHub Actions CI
-![GitHub Actions CI](screenshots/github-actions-ci.png)
+![GitHub Actions CI](docs/screenshots/github-actions-ci.png)
 
 ### Successful Workflow Run
-![Successful workflow](screenshots/successful-workflow.png)
+![Successful workflow](docs/screenshots/successful-workflow.png)
 
 ### Automated Tests
-![Automated tests](screenshots/automated-tests.png)
+![Automated tests](docs/screenshots/automated-tests.png)
 
 ### S3 Objects
-![S3 objects](screenshots/s3-objects.png)
+![S3 objects](docs/screenshots/s3-objects.png)
 
 ## Architecture
 
