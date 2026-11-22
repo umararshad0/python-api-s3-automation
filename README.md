@@ -1,31 +1,43 @@
 # Python API to Amazon S3 Automation
 
-A Python automation project that fetches data from a public REST API, saves the response as a JSON file, and uploads it to Amazon S3 using Boto3.
+A Python workflow that fetches public API data, saves JSON locally, and transfers objects to Amazon S3.
 
-This project demonstrates Python scripting, REST API integration, AWS S3 storage, automated testing, and CI with GitHub Actions.
+## Problem & Solution
 
-## Project Overview
+- **Problem:** Moving data from a REST API into cloud storage by hand is repetitive and difficult to verify.
+- **Approach:** The scripts fetch and save API responses, upload them with Boto3, and support downloading S3 objects.
+- **Outcome:** Automated tests and checksums demonstrate a repeatable transfer and integrity workflow.
 
-The application retrieves sample posts from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/), saves the returned data locally, and uploads the generated JSON file to an Amazon S3 bucket.
+## Screenshots
 
-## Screenshots & Diagrams
+<table>
+  <tr>
+    <td align="center" valign="top">
+      <img src="docs/screenshots/github-actions-ci.png" alt="GitHub Actions CI" width="420">
+      <br><sub>GitHub Actions CI</sub>
+    </td>
+    <td align="center" valign="top">
+      <img src="docs/screenshots/successful-workflow.png" alt="Successful workflow" width="420">
+      <br><sub>Successful workflow</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <img src="docs/screenshots/automated-tests.png" alt="Automated tests" width="420">
+      <br><sub>Automated tests</sub>
+    </td>
+    <td align="center" valign="top">
+      <img src="docs/screenshots/s3-objects.png" alt="S3 objects" width="420">
+      <br><sub>S3 objects</sub>
+    </td>
+  </tr>
+</table>
 
-### Architecture
+## Architecture Diagram
+
 ![Python API to S3 architecture](docs/diagrams/python-api-s3-architecture.png)
 
-### GitHub Actions CI
-![GitHub Actions CI](docs/screenshots/github-actions-ci.png)
-
-### Successful Workflow Run
-![Successful workflow](docs/screenshots/successful-workflow.png)
-
-### Automated Tests
-![Automated tests](docs/screenshots/automated-tests.png)
-
-### S3 Objects
-![S3 objects](docs/screenshots/s3-objects.png)
-
-## Architecture
+### Architecture Notes
 
 1. **API Integration:** Fetches posts from JSONPlaceholder using Python Requests.
 2. **Local Storage:** Saves API responses as timestamped JSON files.
@@ -35,7 +47,16 @@ The application retrieves sample posts from the [JSONPlaceholder API](https://js
 6. **Automated Testing:** Tests application and upload functionality using Python `unittest` and mocks.
 7. **Continuous Integration:** GitHub Actions automatically runs the test suite on pushes and pull requests to `main`.
 
-## Technologies Used
+## Project Details
+
+### Project Overview
+
+
+The application retrieves sample posts from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/), saves the returned data locally, and uploads the generated JSON file to an Amazon S3 bucket.
+
+
+### Technologies Used
+
 
 - Python 3
 - Requests
@@ -47,7 +68,9 @@ The application retrieves sample posts from the [JSONPlaceholder API](https://js
 - GitHub Actions
 - Python unittest and unittest.mock
 
-## Project Structure
+
+### Project Structure
+
 
 ```text
 python-api-s3-automation/
@@ -68,14 +91,18 @@ python-api-s3-automation/
 
 Generated JSON files and downloaded data are excluded from Git using `.gitignore`.
 
-## Prerequisites
+
+### Prerequisites
+
 
 - Python 3
 - An AWS account
 - An existing Amazon S3 bucket
 - AWS credentials configured through a supported Boto3 credential provider
 
-## Setup
+
+### Setup
+
 
 Clone the repository:
 
@@ -97,7 +124,9 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-## AWS Configuration
+
+### AWS Configuration
+
 
 The application uses Boto3 to communicate with Amazon S3.
 
@@ -118,7 +147,9 @@ The AWS identity used by the application needs appropriate permissions for the c
 
 Keep AWS access keys and secret credentials out of the source code and Git repository.
 
-## Running the Application
+
+### Running the Application
+
 
 Run the complete API-to-S3 workflow:
 
@@ -133,7 +164,9 @@ The application:
 3. Uploads the generated file to the configured S3 bucket.
 4. Reports whether the workflow completed successfully.
 
-## Downloading an S3 Object
+
+### Downloading an S3 Object
+
 
 The project also includes an S3 download script. Set `S3_OBJECT_KEY` to an object that exists in the configured bucket. To download the newest file created by a local run:
 
@@ -144,7 +177,9 @@ python src/s3_download.py
 
 It downloads that object into `data/downloads/`. The download utility requires AWS credentials with `s3:GetObject` permission.
 
-## Running Automated Tests
+
+### Running Automated Tests
+
 
 Run the test suite:
 
@@ -163,7 +198,9 @@ The tests cover:
 
 AWS and API calls are mocked in the unit tests, so the test suite does not require live AWS operations or API requests.
 
-## Continuous Integration
+
+### Continuous Integration
+
 
 GitHub Actions is configured to run automated tests when:
 
@@ -172,14 +209,18 @@ GitHub Actions is configured to run automated tests when:
 
 The workflow installs the project dependencies and executes the Python unit tests on an Ubuntu runner.
 
-## Security Considerations
+
+### Security Considerations
+
 
 - AWS credentials are not stored in the repository.
 - Generated data files are excluded using `.gitignore`.
 - S3 public access should remain blocked.
 - AWS IAM permissions should follow the principle of least privilege.
 
-## Project Learning Outcomes
+
+### Project Learning Outcomes
+
 
 This project demonstrates practical experience with:
 
@@ -193,6 +234,4 @@ This project demonstrates practical experience with:
 
 ## Author
 
-**Umar Arshad**
-
-GitHub: [umararshad0](https://github.com/umararshad0)
+**Umar Arshad** · [GitHub](https://github.com/umararshad0)
