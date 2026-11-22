@@ -48,12 +48,12 @@ def save_data(posts):
     return file_path
 
 
-def main():
+def main() -> int:
     posts = fetch_api_data()
 
     if posts is None:
         print("Workflow stopped: API data could not be fetched.")
-        return
+        return 1
 
     file_path = save_data(posts)
 
@@ -61,10 +61,12 @@ def main():
 
     if upload_success:
         print("Workflow completed successfully!")
-    else:
-        print("Workflow completed with an S3 upload failure.")
+        return 0
+
+    print("Workflow completed with an S3 upload failure.")
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
 

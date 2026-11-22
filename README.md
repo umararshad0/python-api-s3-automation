@@ -107,12 +107,12 @@ Configure AWS credentials using a supported method, such as the AWS CLI:
 aws configure
 ```
 
-Current application configuration:
+Default application configuration:
 
-- **S3 bucket:** `python-api-s3-automation-umar-2026`
-- **AWS region:** `eu-north-1`
+- **S3 bucket:** `python-api-s3-automation-umar-2026` (override with `S3_BUCKET_NAME`)
+- **AWS region:** `eu-north-1` (override with `AWS_REGION`)
 
-These values are defined in `src/s3_upload.py`.
+The upload and download scripts use these settings. Set `S3_BUCKET_NAME` if you want to use a bucket you own.
 
 The AWS identity used by the application needs appropriate permissions for the configured bucket, including `s3:PutObject` and `s3:GetObject`.
 
@@ -135,13 +135,14 @@ The application:
 
 ## Downloading an S3 Object
 
-The project also includes an S3 download script:
+The project also includes an S3 download script. Set `S3_OBJECT_KEY` to an object that exists in the configured bucket. To download the newest file created by a local run:
 
 ```bash
+export S3_OBJECT_KEY="$(basename "$(ls -t data/posts-*.json | head -n 1)")"
 python src/s3_download.py
 ```
 
-It downloads the configured S3 object into the local project data directory.
+It downloads that object into `data/downloads/`. The download utility requires AWS credentials with `s3:GetObject` permission.
 
 ## Running Automated Tests
 

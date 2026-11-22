@@ -1,10 +1,12 @@
+import os
+
 import boto3
 from botocore.exceptions import ClientError
 from pathlib import Path
 
 
-BUCKET_NAME = "python-api-s3-automation-umar-2026"
-REGION = "eu-north-1"
+BUCKET_NAME = os.getenv("S3_BUCKET_NAME", "python-api-s3-automation-umar-2026")
+REGION = os.getenv("AWS_REGION", "eu-north-1")
 
 
 def upload_to_s3(file_path):
